@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Sunshiney&display=swap" rel="stylesheet">
+    
    <title>Horoscope</title>
     <style>
     body{
@@ -52,7 +53,7 @@
         font-size: 1.5em;
         color: #ffffff;
     }
-    #horoscope-btn{
+    #horoscope-btn, #horoscope-update-btn, #horoscope-delete-btn, #horoscope-read-btn{
         width: 100px;
        height: 30px;
        background: transparent;
@@ -91,12 +92,15 @@ ul{
    <h1>Daily Horoscope</h1>
    </div>
     <div id="horoscope">
-    <form action="post" id="horoscope-form">
-    <input type="text" name="horoscope" id="horoscope-inputText">
-    <input type="button" value="Enter" id="horoscope-btn">
+    <form  id="horoscope-form" class="form">
+        <input type="text" name="date" id="horoscope-inputText">
+        <input type="submit" value="Save" id="horoscope-btn" >
+        <input type="submit" value="Read" id="horoscope-read-btn">
+        <input type="submit" value="Update" id="horoscope-update-btn">
+        <input type="submit" value="Delete" id="horoscope-delete-btn">
     </form>
-    <p id="horoscope-text">your story is this.your story is this.your story is this.your story is this.
-    this your story is this.your story is this.your story is this.your story is this.your story is this.your story is this.your story is this.your story is this.your story is this.your story is this.your story is this.your story is this.your story is this.your story is this.your story is this.your story is this.
+    <p id="horoscope-text">
+ 
     </p>
     <ul id="horoscope-images">
     <li><img src="images/Aquarius.png" alt=""></li>
@@ -118,8 +122,9 @@ ul{
     </div>
     <script>
     
-//https://www.youtube.com/watch?v=MNuJECU2uHM
+//https://www.youtube.com/watch?v=MNuJECU2uHM action = "server/addHoroscope.php" method= "POST"
 </script>
 <script src="snow.js"></script>
+<script src="logic.js"></script>
 </body>
 </html>
