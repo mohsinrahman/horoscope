@@ -1,7 +1,7 @@
 
 <?php
 
-
+include 'horoscopeList.php';
 
 // For using $_SESSION in this file.
 session_start();
@@ -11,25 +11,34 @@ if(isset($_SERVER['REQUEST_METHOD'])) {
 
     // Checking if request-method is POST.
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
-
         // Checking if key 'name' has been set in the request-body.
         if(isset($_POST['date'])) {
-            include 'horoscopeList.php';
+            
             // Saving the value of the key 'name' from the request into the key 'personName' in $_SESSION.
-            $_SESSION["date"] = serialize(getHoroscope($_POST['date']));
-            // Sending the saved value back to the client.
-            if(isset($_SESSION["date"]) && $_SESSION["date"] !== "0"){
-               // echo json_encode(unserialize($_SESSION["date"]));
-               echo "True";
+            if(!isset($_SESSION["result"])) {
+                
+                
+                error_log("save");
+                echo json_encode($_SESSION["result"]);
+                
+                //echo json_encode(true); 
+                $_SESSION["result"] = getHoroscope($_POST['date']);
+               
+                exit;
+               
+            } else {
+                error_log("not save");
+                echo json_encode($_SESSION["result"]);
+                echo json_encode(false); 
+                exit;
             }
-            else if($_SESSION["date"] === "0"){
-                echo "False";
-            }
+            
+
             
         } else {
             
             // Sending a fault message explaining that the name is not set.
-            echo json_encode("name is not set in body");
+            echo json_encode(false);
         }
 
     }else {

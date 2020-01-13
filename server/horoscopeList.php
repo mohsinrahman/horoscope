@@ -29,8 +29,8 @@ function getHoroscope($date) {
         $mydate= explode('-',$date);
         $mydateMonth = $mydate[0];
         $mydateDay = $mydate[1];
-        if (strlen($mydateMonth) > 2 || strlen($mydateDay) > 2){
-            return "";
+        if (strlen($mydateMonth) > 2 || strlen($mydateDay) > 2 || $mydateMonth == "undefined"|| $mydateDay == "undefined" ){
+            return false;
         }
         error_log($date);
         error_log($startMonth);
@@ -39,22 +39,29 @@ function getHoroscope($date) {
         error_log($endDay);
         
          if($mydateMonth == $startMonth && $mydateDay >= $startDay && $mydateDay <= "30"){
+           // $getDate = $startMonth."-".$startDay;
+            //$val = array($getDate, $key);
+            //echo json_encode($key);
             return $key;
         }
-        elseif ($mydateMonth == $endMonth && $mydateDay <= "30"&& $mydateDay <= $endDay){
+        else if($mydateMonth == $endMonth && $mydateDay <= "30"&& $mydateDay <= $endDay){
+           // $getDate = $endMonth."-".$endDay;
+           // $val = array($getDate, $key);
+           //echo json_encode($key);
             return $key;
         }
+
     }
 
 }
 else 
 {
-    return "";
+    return false;
 }
 
 
 }
    
 
-
+//tail -f /Applications/MAMP/logs/php_error.log
 ?>

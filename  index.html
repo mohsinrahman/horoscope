@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,12 +79,20 @@ ul{
        list-style:none;
        justify-content: space-around;
    }
-   li{
-      
-   }
+  
    img{
        height:100px;
        width:75px;
+   }
+   #horoscope-div{
+       margin-top:50px;
+       width: 200px;
+       height: 100px;
+       box-shadow: 1px 1px 221px 1px rgb(160,229,199), 1px 1px 221px 1px rgb(160,229,199);
+   }
+   #horoscope-text{
+       text-align: center;
+
    }
     </style>
 </head>
@@ -95,13 +104,13 @@ ul{
     <form  id="horoscope-form" class="form">
         <input type="text" name="date" id="horoscope-inputText">
         <input type="submit" value="Save" id="horoscope-btn" >
-        <input type="submit" value="Read" id="horoscope-read-btn">
         <input type="submit" value="Update" id="horoscope-update-btn">
         <input type="submit" value="Delete" id="horoscope-delete-btn">
     </form>
-    <p id="horoscope-text">
- 
-    </p>
+    <div id="horoscope-div">
+    <p id="horoscope-text"></p>
+    </div>
+    
     <ul id="horoscope-images">
     <li><img src="images/Aquarius.png" alt=""></li>
     <li><img src="images/Aries.png" alt=""></li>
@@ -122,7 +131,6 @@ ul{
     </div>
     <script>
     
-//https://www.youtube.com/watch?v=MNuJECU2uHM action = "server/addHoroscope.php" method= "POST"
 </script>
 <script src="snow.js"></script>
 <script src="logic.js"></script>
